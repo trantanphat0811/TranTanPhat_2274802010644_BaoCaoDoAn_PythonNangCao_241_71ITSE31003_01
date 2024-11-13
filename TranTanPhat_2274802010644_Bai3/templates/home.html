@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1.home {
+            color: #4a90e2;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 200px;
+            height: auto;
+            border: 3px solid #4a90e2;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .input-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .input-container button:hover {
+            background-color: #357abd;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="home name">Quản Lý Tài Khoản</h1>
+    <img src="{{url_for('static', filename='images/python.jpg')}}" alt="Python Image">
+
+    <!-- Form nhập thông tin người dùng -->
+    <div class="input-container">
+        <form action="{{ url_for('login') }}" method="POST">
+            <input type="text" name="name" placeholder="Enter Username" required>
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
